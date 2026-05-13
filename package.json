@@ -1,0 +1,23 @@
+{
+  "name": "task-memory-api",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "Express and Prisma API for lightweight tasks, memories, events, and reminder dispatch.",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "db:push": "prisma db push",
+    "db:generate": "prisma generate",
+    "db:reset": "node src/reset.js",
+    "db:seed": "node src/seed.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.5.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "prisma": "^6.5.0"
+  }
+}

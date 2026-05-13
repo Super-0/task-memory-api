@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Memory {
+  id        String   @id @default(cuid())
+  category  String
+  title     String
+  content   String
+  tags      String?
+  pinned    Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Task {
+  id          String   @id @default(cuid())
+  title       String
+  notes       String?
+  status      String   @default("todo")
+  priority    String   @default("medium")
+  dueAt       DateTime?
+  reminderAt  DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  completedAt DateTime?
+}
+
+model Event {
+  id        String   @id @default(cuid())
+  title     String
+  notes     String?
+  location  String?
+  source    String   @default("manual")
+  startAt   DateTime
+  endAt     DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ReminderDelivery {
+  id         String   @id @default(cuid())
+  kind       String
+  itemId     String
+  remindAt   DateTime
+  deliveredAt DateTime @default(now())
+
+  @@unique([kind, itemId, remindAt])
+}
