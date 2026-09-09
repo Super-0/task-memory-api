@@ -2,7 +2,7 @@
 
 A local REST API for structured memories, tasks, events, contextual lookup, and reminder workflows. Built to explore a clear backend model for assistant-style and personal-productivity systems.
 
-![Task Memory API architecture](https://raw.githubusercontent.com/Super-0/task-memory-api/92c97c601620f160f139b54c95721ff34b33e7b0/docs/architecture.svg)
+![Task Memory API architecture](https://raw.githubusercontent.com/Super-0/task-memory-api/main/docs/architecture.svg?v=3)
 
 ## Current status
 
