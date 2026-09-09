@@ -1,12 +1,18 @@
 # Task Memory API
 
-A lightweight backend API for storing personal memories, tasks, and calendar-style events, with reminder dispatch support built on top of Express, Prisma, and SQLite.
+A local REST API for structured memories, tasks, events, contextual lookup, and reminder workflows. Built to explore a clear backend model for assistant-style and personal-productivity systems.
 
-## Overview
+![Task Memory API architecture](docs/architecture.svg)
+
+## Current status
+
+**Working locally.** The API supports CRUD flows, contextual lookup, validation, and retry-safe reminder collection using Node.js, Express, Prisma, and SQLite. It is not a deployed service and does not include authentication, real-user notification delivery, or production observability.
+
+## Problem and approach
 
 This project explores a simple backend architecture for personal productivity and assistant-style workflows. It provides REST endpoints for structured records, lightweight search/relevance scoring, and a reminder job flow that can either log reminders or forward them to an external event system.
 
-## Features
+## What currently works
 
 - REST API for memories, tasks, and events
 - Query-based memory and context lookup
@@ -102,6 +108,11 @@ http://localhost:3001
 - Job-style reminder processing
 - Preparing a backend for assistant or productivity workflows
 
-## Notes
+## Known limitations / production next steps
 
-The default configuration uses SQLite for simplicity and easy local setup. Reminder dispatch can either log reminders or send them into a generic system-event flow or simply log them depending on environment configuration.
+- **Local-first storage:** SQLite is intentional for simple setup; a hosted deployment would need managed persistence and migration/backup strategy.
+- **No authentication:** endpoints are designed for local development, not public exposure.
+- **No production notification service:** reminder dispatch is a workflow boundary, not a claim of delivered notifications.
+- **No scale claim:** this is a portfolio backend API, not a multi-user production system.
+
+The default configuration uses SQLite for simple, reproducible setup. Reminder dispatch can log reminders or forward them to a generic system-event flow depending on environment configuration.
